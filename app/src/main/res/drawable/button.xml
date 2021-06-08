@@ -5,5 +5,14 @@
         android:bottomLeftRadius="180dip"
         android:topRightRadius="180dip"
         android:topLeftRadius="180dip"/>
-    <solid android:color="#80FF8758"></solid>
+    <gradient
+        android:angle="70"
+        android:alpha="0.6"
+        android:startColor="@color/colorAccent"
+        android:endColor="@color/colorPrimary"
+        android:type="linear"
+        />
+    <stroke
+        android:width="5dp"
+        android:color="@color/colorPrimaryLight"/>
 </shape>

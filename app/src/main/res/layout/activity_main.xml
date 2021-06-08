@@ -5,127 +5,166 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-<!--    android:background="@drawable/background_1"-->
-
+    tools:context=".MainActivity"
+    android:background="@drawable/background_1">
 
     <ImageView
-        android:id="@+id/cityPic"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:adjustViewBounds="true"
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:visibility="visible"
+        android:alpha="0.8"
+        app:srcCompat="@drawable/rollo1"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_width="match_parent"
+        />
+
+    <ImageView
+        android:id="@+id/frame_glass"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="60dp"
+        android:paddingBottom="65dp"
+        android:paddingLeft="36dp"
+        android:paddingRight="36dp"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundImage"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImage"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImage"
+        app:layout_constraintTop_toTopOf="@+id/backgroundImage"
+        app:srcCompat="@drawable/glass_frame" />
+
+    <ImageView
+        android:id="@+id/button_background"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:layout_height="380dp"
+        android:layout_width="match_parent"
         android:alpha="0.9"
-        android:scaleType="fitXY"
-        android:src="@drawable/testpic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/backgroundImage"
+        app:layout_constraintTop_toTopOf="@+id/backgroundImage"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/button_background" />
 
     <ImageView
-        android:id="@+id/glass"
-        android:layout_width="346dp"
-        android:layout_height="327dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/background_2"
-        app:layout_constraintBottom_toBottomOf="@+id/cityPic"
-        app:layout_constraintEnd_toEndOf="@+id/cityPic"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/cityPic"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        android:id="@+id/frame_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="60dp"
+        android:paddingBottom="65dp"
+        android:paddingLeft="36dp"
+        android:paddingRight="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImage"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImage"
+        app:layout_constraintTop_toTopOf="@+id/backgroundImage"
+        app:srcCompat="@drawable/frame" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TITLE"
-        android:textColor="#2D0C57"
+        android:layout_marginTop="152dp"
+        android:text="Jees"
+        android:textColor="@color/colorFont"
         android:textSize="64sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/cityPic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/roundButton"
-        android:layout_width="175dp"
-        android:layout_height="175dp"
-        android:src="@drawable/rounded_corners"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/anim1"
-        android:layout_width="175dp"
-        android:layout_height="175dp"
-        android:src="@drawable/rounded_corners"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/anim2"
-        android:layout_width="175dp"
-        android:layout_height="175dp"
-        android:src="@drawable/rounded_corners"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <ImageView
-        android:id="@+id/anim3"
-        android:layout_width="175dp"
-        android:layout_height="175dp"
-        android:src="@drawable/rounded_corners"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/primaryActionBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:src="@drawable/ic_baseline_photo_camera_24"
-        app:layout_constraintBottom_toBottomOf="@+id/roundButton"
-        app:layout_constraintEnd_toEndOf="@+id/roundButton"
-        app:layout_constraintHorizontal_bias="0.524"
-        app:layout_constraintStart_toStartOf="@+id/roundButton"
-        app:layout_constraintTop_toTopOf="@+id/roundButton" />
-
-    <TextView
-        android:id="@+id/guidingTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="Lorem Ipsum"
-        android:textColor="#2D0C57"
-        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/primaryActionBtn" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:drawableLeft="@drawable/ic_baseline_gps_fixed_24"
-        android:drawablePadding="5dp"
-        android:text="Ainonkatu 4"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guidingTextView" />
+<!--        <ImageView-->
+<!--        android:id="@+id/anim1"-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:alpha="0.5"-->
+<!--            android:src="@drawable/button"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/frame_top"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/button_background"-->
+<!--            app:layout_constraintHorizontal_bias="0.497"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/button_background"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/button_background"-->
+<!--            app:layout_constraintVertical_bias="0.366"/>-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/anim2"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:alpha="0.5"-->
+<!--        android:src="@drawable/button"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/frame_top"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/button_background"-->
+<!--        app:layout_constraintHorizontal_bias="0.497"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/button_background"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/button_background"-->
+<!--        app:layout_constraintVertical_bias="0.366" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/anim3"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:alpha="0.5"-->
+<!--        android:src="@drawable/button"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/frame_top"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/button_background"-->
+<!--        app:layout_constraintHorizontal_bias="0.497"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/button_background"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/button_background"-->
+<!--        app:layout_constraintVertical_bias="0.366" />-->
+
+    <ImageView
+        android:id="@+id/roundButton"
+        android:layout_width="225dp"
+        android:layout_height="225dp"
+        android:src="@drawable/button"
+        app:layout_constraintBottom_toBottomOf="@+id/frame_top"
+        app:layout_constraintEnd_toEndOf="@+id/button_background"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/button_background"
+        app:layout_constraintTop_toTopOf="@+id/button_background"
+        app:layout_constraintVertical_bias="0.366" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/primaryActionBtn"
+        android:layout_width="650dp"
+        android:layout_height="650dp"
+        app:layout_constraintBottom_toBottomOf="@+id/roundButton"
+        app:layout_constraintEnd_toEndOf="@+id/roundButton"
+        app:layout_constraintStart_toStartOf="@+id/roundButton"
+        app:layout_constraintTop_toTopOf="@+id/roundButton"
+        app:lottie_rawRes="@raw/cam"
+ />
+
+    <!--    <TextView-->
+<!--        android:id="@+id/guidingTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="60dp"-->
+<!--        android:text="Lorem Ipsum"-->
+<!--        android:textColor="@color/colorPrimaryLight"-->
+<!--        android:textSize="32sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.497"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/primaryActionBtn" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="64dp"-->
+<!--        android:drawableLeft="@drawable/ic_baseline_gps_fixed_24"-->
+<!--        android:drawablePadding="5dp"-->
+<!--        android:text="Ainonkatu 4"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/guidingTextView" />-->
 
     <!--        <androidx.recyclerview.widget.RecyclerView-->
 <!--            android:id="@+id/placeHolderRv"-->

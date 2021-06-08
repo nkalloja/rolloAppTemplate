@@ -5,5 +5,5 @@
         android:bottomLeftRadius="180dip"
         android:topRightRadius="180dip"
         android:topLeftRadius="180dip"/>
-    <solid android:color="#80FF8758"></solid>
+    <solid android:color="@color/colorPrimary"></solid>
 </shape>

@@ -7,12 +7,12 @@
         android:topLeftRadius="180dip"/>
     <gradient
         android:angle="70"
-        android:alpha="0.6"
-        android:startColor="@color/colorAccent"
-        android:endColor="@color/colorPrimary"
+        android:alpha="0.9"
+        android:startColor="@color/colorSecondAccent"
+        android:endColor="@color/colorSecondAccentLight"
         android:type="linear"
         />
     <stroke
-        android:width="5dp"
+        android:width="1dp"
         android:color="@color/colorPrimaryLight"/>
 </shape>

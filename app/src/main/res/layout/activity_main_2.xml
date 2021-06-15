@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/background">
+
+
+<!--    <ImageView-->
+<!--        android:id="@+id/button_background"-->
+<!--        android:layout_width="388dp"-->
+<!--        android:layout_height="278dp"-->
+<!--        android:alpha="0.9"-->
+<!--        android:paddingLeft="15dp"-->
+<!--        android:paddingRight="15dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="1.0"-->
+<!--        app:srcCompat="@drawable/button_background" />-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="303dp"
+        android:layout_height="700dp"
+        android:layout_gravity="center"
+        android:elevation="10dp"
+        android:topRightRadius="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/info_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/arktikumi"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/backgroundImage"
+            app:layout_constraintStart_toStartOf="@+id/backgroundImage"
+            app:layout_constraintTop_toTopOf="@+id/backgroundImage" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="174dp"
+            android:layout_height="163dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="serif"
+            android:text="Rollo"
+            android:textColor="@color/colorDarkFont"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="80dp"
+            android:fontFamily="serif"
+            android:text="App"
+            android:textColor="@color/colorDarkFont"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/roundButton"
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:layout_gravity="bottom"
+
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/button" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/primaryActionBtn"
+            android:layout_width="700dp"
+            android:layout_height="700dp"
+            app:layout_constraintBottom_toBottomOf="@+id/roundButton"
+            app:layout_constraintEnd_toEndOf="@+id/roundButton"
+            app:layout_constraintStart_toStartOf="@+id/roundButton"
+            app:layout_constraintTop_toTopOf="@+id/roundButton"
+            app:lottie_rawRes="@raw/cam" />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/frame_top"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/backgroundImage"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/backgroundImage"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/backgroundImage"-->
+<!--            app:srcCompat="@drawable/frame" />-->
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <!--    <TextView-->
+<!--        android:id="@+id/guidingTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="60dp"-->
+<!--        android:text="Lorem Ipsum"-->
+<!--        android:textColor="@color/colorPrimaryLight"-->
+<!--        android:textSize="32sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.497"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/primaryActionBtn" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:drawableLeft="@drawable/ic_baseline_gps_fixed_24"-->
+<!--        android:drawablePadding="5dp"-->
+<!--        android:text="Ainonkatu 4"-->
+<!--        android:textColor="@color/colorFont"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/primaryActionBtn"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.155" />-->
+
+    <!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/placeHolderRv"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

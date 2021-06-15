@@ -22,10 +22,17 @@ import java.text.SimpleDateFormat
 import java.util.*
 import android.graphics.BlurMaskFilter
 import android.os.*
+import android.view.View
+import android.view.ViewAnimationUtils
+import android.view.ViewGroup
 import android.view.animation.Animation
+import android.widget.Button
+import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.lifecycle.MutableLiveData
 import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieListener
+import com.example.testing.R.id.primaryActionBtn
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.coroutineContext
@@ -34,6 +41,8 @@ import kotlin.coroutines.coroutineContext
 class MainActivity : AppCompatActivity() {
     
     private lateinit var lottieAnim: LottieAnimationView
+    private lateinit var camButton: ImageView
+    private lateinit var textGuide: TextView
 
 
     companion object {
@@ -53,13 +62,55 @@ class MainActivity : AppCompatActivity() {
         }
         this.transparentStatusBar()
 
-//        applyBlurMaskFilter()
-        animZoom()
+        camButton = findViewById<ImageView>(R.id.roundButton)
+        textGuide = findViewById(R.id.textGuide)
+
+        startAnimations()
+
+    }
+
+    private fun startAnimations(){
+        slideUp()
+
+    }
+
+    private fun slideUp(){
+        val buttonBackground = findViewById<ImageView>(R.id.button_background)
+
+        val slide = AnimationUtils.loadAnimation(this, R.anim.slide_up)
+
+        buttonBackground.startAnimation(slide)
+
+        slide.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(animation: Animation?) {
+                playZoom()
+                playTextPop()
+            }
+            override fun onAnimationEnd(animation: Animation?) {
+                playLottie()
+            }
+            override fun onAnimationRepeat(animation: Animation?) {
+            }
+        })
+    }
+
+    private fun playTextPop(){
+
+        val popUp = AnimationUtils.loadAnimation(this, R.anim.text_pop)
+
+
+        textGuide.startAnimation(popUp)
+
+    }
+
+    private fun playLottie(){
         lottieAnim = findViewById(R.id.primaryActionBtn)
+        lottieAnim.setMaxFrame(128)
+
         lottieAnim.playAnimation()
+
         lottieAnim.addAnimatorListener(object: Animator.AnimatorListener {
             override fun onAnimationStart(animation: Animator?) {
-                lottieAnim.setMaxFrame(128)
             }
 
             override fun onAnimationEnd(animation: Animator?) {
@@ -70,13 +121,26 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }
-
             override fun onAnimationCancel(animation: Animator?) {}
-
             override fun onAnimationRepeat(animation: Animator?) {}
-
         })
+    }
 
+    private fun playZoom(){
+        val zoom = AnimationUtils.loadAnimation(this, R.anim.zoom)
+        camButton.startAnimation(zoom)
+
+        zoom.setAnimationListener(object : Animation.AnimationListener{
+            override fun onAnimationStart(animation: Animation?) {
+                Log.d(TAG, "onAnimationStart: ZOOM STARTED")
+            }
+            override fun onAnimationEnd(animation: Animation?) {
+                playZoom()
+                Log.d(TAG, "onAnimationStart: ZOOM ENDED")
+            }
+            override fun onAnimationRepeat(animation: Animation?)  {
+            }
+        })
     }
 
     private fun playAnimation() {
@@ -117,147 +181,17 @@ class MainActivity : AppCompatActivity() {
 //        placeholderAdapter.submitItems(createItems())
 //    }
 
-//    private fun blurEffect(){
-
-
-//        var blurryImage = findViewById<ImageView>(R.id.backgroundColor1)
-//        Blurry.with(this)
-//            .radius(100)
-//            .sampling(2)
-//            .onto(blurryImage)
-
-//        blurryImage.post {
-//            Blurry.with(this)
-//                .radius(25)
-//                .sampling(2)
-//                .async()
-//                .animate(300)
-//                .onto(blurryImage)
-//        }
-//        var blurryImage = findViewById<ImageView>(R.id.backgroundColor1)
-//        Blurry.with(this)
-//            .radius(25)
-//            .sampling(4)
-//            .animate(500)
-//            .async()
-//            .onto(blurryImage)
-//
-//        Blurry.with(this)
-//            .radius(25)
-//            .sampling(1)
-////            .color(Color.argb(66, 0, 255, 255))
-//            .async()
-////            .capture(findViewById(R.id.backgroundImage))
-//            .onto(findViewById(R.id.backgroundImage))
-
-
-//        val radius = 20f
-//
-//        val decorView = window.decorView
-//        //ViewGroup you want to start blur from. Choose root as close to BlurView in hierarchy as possible.
-//        //ViewGroup you want to start blur from. Choose root as close to BlurView in hierarchy as possible.
-//        val rootView = decorView.findViewById<View>(R.id.backgroundImage) as ImageView
-//        //Set drawable to draw in the beginning of each blurred frame (Optional).
-//        //Can be used in case your layout has a lot of transparent space and your content
-//        //gets kinda lost after after blur is applied.
-//        //Set drawable to draw in the beginning of each blurred frame (Optional).
-//        //Can be used in case your layout has a lot of transparent space and your content
-//        //gets kinda lost after after blur is applied.
-//        val windowBackground = decorView.backgroundImage
-//
-//        blurView.setupWith(rootView)
-//            .setFrameClearDrawable(windowBackground)
-//            .setBlurAlgorithm(RenderScriptBlur(this))
-//            .setBlurRadius(radius)
-//            .setBlurAutoUpdate(true)
-//            .setHasFixedTransformationMatrix(true) // Or false if it's in a scrolling container or might be animated
-//
-//    private fun applyBlurMaskFilter() {
-////        var blurImage = findViewById<ImageView>(R.id.backgroundImage)
-//////        blurImage.(applyBlurMaskFilter(2, BlurMaskFilter.Blur.NORMAL)
-//        backgroundImage.paint.maskFilter = BlurMaskFilter(3, BlurMaskFilter.Blur.NORMAL)
-//        backgroundImage.postInvalidate()
-//    }
 
     private fun buttonPressAnim(){
         val openCam = AnimationUtils.loadAnimation(this, R.anim.button_press)
-        var camButton = findViewById(R.id.roundButton) as ImageView
         camButton.startAnimation(openCam)
     }
+
     private fun animZoom() {
         val zoom = AnimationUtils.loadAnimation(this, R.anim.zoom)
-//        val zoom1 = AnimationUtils.loadAnimation(this, R.anim.zoom1)
-//        val zoom2 = AnimationUtils.loadAnimation(this, R.anim.zoom2)
-//        val zoom3 = AnimationUtils.loadAnimation(this, R.anim.zoom3)
-
         var imgButton = findViewById(R.id.roundButton) as ImageView
-//        val anim1 = this.findViewById(R.id.anim1) as ImageView
-//        val anim2 = findViewById(R.id.anim2) as ImageView
-//        val anim3 = findViewById(R.id.anim3) as ImageView
 
-//
-//        zoom.setAnimationListener(object : Animation.AnimationListener {
-//            override fun onAnimationStart(animation: Animation?) {
-//                imgButton.alpha = 1f
-//            }
-//
-//            override fun onAnimationEnd(animation: Animation?) {
-//                animation?.start()
-//            }
-//
-//            override fun onAnimationRepeat(animation: Animation?) {
-//                Log.d(TAG, "onAnimationRepeat: ZOOM  REPEAT $animation")
-//            }
-//        })
-//        zoom1.setAnimationListener(object : Animation.AnimationListener {
-//            override fun onAnimationStart(animation: Animation?) {
-//                anim1.alpha = 1f
-//                Log.d(TAG, "onAnimationStart: ZOOM 1 STARTED")
-//            }
-//
-//            override fun onAnimationEnd(animation: Animation?) {
-//                Log.d(TAG, "onAnimationStart: ZOOM1  END")
-//                animation?.start()
-//            }
-//
-//            override fun onAnimationRepeat(animation: Animation?) {
-//                TODO("Not yet implemented")
-//            }
-//        })
-//        zoom2.setAnimationListener(object : Animation.AnimationListener {
-//            override fun onAnimationStart(animation: Animation?) {
-//                Log.d(TAG, "onAnimationStart: ZOOM 2 STARTED")
-//                anim2.alpha = 1f
-//            }
-//
-//            override fun onAnimationEnd(animation: Animation?) {
-//                Log.d(TAG, "onAnimationStart: ZOOM2  END")
-//                animation?.start()
-//            }
-//
-//            override fun onAnimationRepeat(animation: Animation?) {
-//                TODO("Not yet implemented")
-//            }
-//        })
-//        zoom3.setAnimationListener(object : Animation.AnimationListener {
-//            override fun onAnimationStart(animation: Animation?) {
-//                Log.d(TAG, "onAnimationStart: ZOOM 3 STARTED")
-//                anim3.alpha = 1f
-//            }
-//
-//            override fun onAnimationEnd(animation: Animation?) {
-//                Log.d(TAG, "onAnimationStart: ZOOM3  END")
-//                animation?.start()
-//            }
-//
-//            override fun onAnimationRepeat(animation: Animation?) {
-//                TODO("Not yet implemented")
-//            }
-//        })
         imgButton.startAnimation(zoom)
-//        anim1.startAnimation(zoom1)
-//        anim2.startAnimation(zoom2)
-//        anim3.startAnimation(zoom3)
 
     }
 

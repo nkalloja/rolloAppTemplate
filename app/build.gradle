@@ -23,6 +23,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
@@ -42,7 +50,21 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    // Easy Permissions
+    def easypermissions_version = "3.0.0"
+    implementation "pub.devrel:easypermissions:$easypermissions_version"
+
+
     def lottieVersion = "3.7.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    def retrofit = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+
+    implementation "com.squareup.okhttp3:okhttp:4.9.0"
+
+    // Google Maps Location Services
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
 
 }

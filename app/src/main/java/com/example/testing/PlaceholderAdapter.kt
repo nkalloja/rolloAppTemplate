@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.testing.MainActivity.Companion.TAG
 import kotlinx.android.synthetic.main.list_item_test_item.view.*
 import kotlin.random.Random
 

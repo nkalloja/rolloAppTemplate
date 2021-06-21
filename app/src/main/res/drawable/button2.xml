@@ -6,7 +6,7 @@
         android:topRightRadius="180dip"
         android:topLeftRadius="180dip"/>
     <gradient
-        android:angle="70"
+        android:angle="90"
         android:alpha="0.6"
         android:startColor="@color/colorPrimaryLight"
         android:endColor="@color/colorFont"

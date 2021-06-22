@@ -10,12 +10,11 @@
     android:background="@drawable/arktikumi">
 
 
-
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.2"
+        android:alpha="0.1"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/background_1"
         tools:layout_editor_absoluteX="-61dp"
@@ -92,18 +91,18 @@
 
     <TextView
         android:id="@+id/textGuide"
-        android:layout_width="250dp"
-        android:layout_height="30dp"
+        android:layout_width="215dp"
+        android:layout_height="229dp"
+        android:fontFamily="@font/brandon_grotesque_regular"
+        android:gravity="center"
         android:text="Nappaa kuva!"
-        android:textAlignment="center"
         android:textColor="@color/colorFont"
         android:textSize="24sp"
-        android:fontFamily="@font/brandon_grotesque_regular"
-        app:layout_constraintBottom_toBottomOf="@+id/backgroundImage"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/roundButton"
+        app:layout_constraintEnd_toEndOf="@+id/button_background"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/backgroundImage"
+        app:layout_constraintStart_toStartOf="@+id/button_background"
+        app:layout_constraintTop_toTopOf="@+id/button_background"
         app:layout_constraintVertical_bias="0.545" />
 
     <!--    <TextView-->

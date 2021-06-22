@@ -43,6 +43,7 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
+import org.w3c.dom.Text
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 import java.io.File
@@ -59,6 +60,7 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
     private lateinit var camButton: ImageView
     private lateinit var textGuide: TextView
     private lateinit var currentPhotoPath: String
+    private lateinit var randomSentenceView: TextView
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var geocoder: Geocoder
     private var userLastLat: Double? = 0.0
@@ -80,10 +82,12 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         camButton = findViewById<ImageView>(R.id.roundButton)
         textGuide = findViewById(R.id.textGuide)
         userAddressTextView = findViewById(R.id.textView3)
+        randomSentenceView = findViewById(R.id.textGuide)
         fusedLocationProviderClient = FusedLocationProviderClient(this)
         geocoder = Geocoder(this)
         requestPermissions()
         startAnimations()
+        setRandomSentence()
 
         if (hasLocationPermissions(this)) {
             setupLocationUpdates()
@@ -125,6 +129,7 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
     }
 
     override fun onRestart() {
+        setRandomSentence()
         super.onRestart()
         if (hasLocationPermissions(this)) {
             setupLocationUpdates()
@@ -132,6 +137,23 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         } else {
             requestPermissions()
         }
+    }
+
+    private fun setRandomSentence(){
+
+        val randomInt = Random().nextInt(7) + 1
+
+        val sentence = when (randomInt) {
+            1 -> R.string.sentence_1
+            2 -> R.string.sentence_2
+            3 -> R.string.sentence_3
+            4 -> R.string.sentence_4
+            5 -> R.string.sentence_5
+            6 -> R.string.sentence_6
+            else -> R.string.sentence_7
+        }
+
+        randomSentenceView.setText(sentence)
     }
 
     @SuppressLint("MissingPermission")

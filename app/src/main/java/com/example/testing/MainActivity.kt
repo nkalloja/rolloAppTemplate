@@ -48,6 +48,7 @@ import pub.devrel.easypermissions.EasyPermissions
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -317,7 +318,8 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                         telemetryJson.addProperty("desc", "coming soon...")
                         telemetryJson.addProperty("lat", userLastLat)
                         telemetryJson.addProperty("lon", userLastLon)
-                        telemetryJson.addProperty("imgId", imgId as Number)
+                        telemetryJson.addProperty("imgId", imgId)
+                        telemetryJson.addProperty("timestamp", System.currentTimeMillis())
 
                         if (RetrofitClient.token?.isNotEmpty() == true) {
                             RetrofitClient.getRetrofitObject()?.create(ApiService::class.java)

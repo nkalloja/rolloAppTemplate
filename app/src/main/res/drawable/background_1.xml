@@ -5,8 +5,8 @@
 
     <gradient
         android:startColor="@color/colorSecondAccent"
-        android:centerColor="@color/colorSecond"
-        android:endColor="@color/colorSecondAccent"
+        android:centerColor="#00BF92"
+        android:endColor="@color/colorSecond"
         android:angle="90"
         android:type="linear" />
 

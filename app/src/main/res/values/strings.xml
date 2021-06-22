@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Testing</string>
+    <string name="app_name">RolloApp</string>
     
     <string name="sentence_1">Mikä tänään harmittaa?\n\nOta meille siitä kuva!</string>
     <string name="sentence_2">Kompastuitko kuoppaan?\n\nNäytä meille kuvalla mistä se löytyy!</string>

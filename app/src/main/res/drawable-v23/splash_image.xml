@@ -3,9 +3,9 @@
 
         <item android:drawable="@drawable/background_1"/>
 
-        <item android:drawable="@drawable/rolloapplogoblack"
-            android:gravity="center"
-            android:height="200dp"
-            android:width="200dp"/>
+    <item android:drawable="@drawable/ic_logo"
+        android:gravity="center"
+        android:height="200dp"
+        android:width="195dp"/>
 
     </layer-list>

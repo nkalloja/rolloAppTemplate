@@ -4,7 +4,7 @@
         <item android:drawable="@drawable/background_1"
             />
 
-        <item android:drawable="@drawable/rolloapplogoblack"
+        <item android:drawable="@drawable/ic_logo"
             android:gravity="center"
             android:height="150dp"
             android:width="150dp"/>

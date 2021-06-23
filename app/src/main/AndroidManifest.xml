@@ -20,9 +20,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/rolloapplogo"
+        android:icon="@drawable/ic_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/background_1"
         android:supportsRtl="true"
         android:theme="@style/splashScreenTheme">
         <activity

@@ -5,7 +5,6 @@ import android.animation.Animator
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.Color
 import android.location.Geocoder
 import android.net.Uri
@@ -273,11 +272,11 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
             val openCam = AnimationUtils.loadAnimation(this, R.anim.button_press)
             camButton.startAnimation(openCam)
             openCam.setAnimationListener(object : Animation.AnimationListener {
-                override fun onAnimationStart(animation: Animation?) {}
-
-                override fun onAnimationEnd(animation: Animation?) {
+                override fun onAnimationStart(animation: Animation?) {
                     takePhoto()
                 }
+
+                override fun onAnimationEnd(animation: Animation?) { }
 
                 override fun onAnimationRepeat(animation: Animation?) {}
 
@@ -351,17 +350,17 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                                     telemetryJson
                                 )
                         }
-                        showSnackbar("Kuvan lähetys onnistui")
+                        showSnackbar(R.string.snackSuccess)
                     }
                 } catch (e: Exception) {
                     Log.d(TAG, "${e.printStackTrace()}")
-                    showSnackbar("Kuvan lähetys epäonnistui")
+                    showSnackbar(R.string.snackSuccess)
                 }
             }
         }
     }
 
-    fun showSnackbar(message: String) {
+    fun showSnackbar(message: Int) {
         val hephoi = findViewById<View>(android.R.id.content)
         val snackbar = Snackbar.make(hephoi, message, Snackbar.LENGTH_LONG)
             .setTextColor(Color.BLACK)

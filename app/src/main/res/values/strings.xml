@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">RolloApp</string>
-    
+
     <string name="sentence_1">Mikä tänään harmittaa?\n\nOta meille siitä kuva!</string>
     <string name="sentence_2">Kompastuitko kuoppaan?\n\nNäytä meille kuvalla mistä se löytyy!</string>
     <string name="sentence_3">Vaivaako jokin vaurio päivääsi?\n\nLaita meille kuva!</string>
@@ -8,7 +8,11 @@
     <string name="sentence_5">Painaako monttu mieltäsi?\n\nOta siitä kuva!</string>
     <string name="sentence_6">Löytyykö jonkin paikan kunnossapidossa kehityksen varaa?\n\nNappaa meille kuva!</string>
     <string name="sentence_7">Repsottaako jokin rakenne?\n\nKerro siitä ottamalla kuva!</string>
-    <string name="sentence_8"></string>
-    <string name="sentence_9"></string>
-    <string name="sentence_10"></string>
+
+
+    <string name="snackFail">"Kuvan lähetys epäonnistui. Yritäthän uudelleen."</string>
+    <string name="snackSuccess">"Kuvan lähetys onnistui. Kiitos palautteesta!"</string>
+
+
+    <string name="permission">"Käyttääksesi sovellusta sinun täytyy hyväksyä lupa sijainnin käyttöön."</string>
 </resources>

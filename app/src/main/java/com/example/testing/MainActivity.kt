@@ -276,7 +276,9 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                     takePhoto()
                 }
 
-                override fun onAnimationEnd(animation: Animation?) { }
+                override fun onAnimationEnd(animation: Animation?) {
+
+                }
 
                 override fun onAnimationRepeat(animation: Animation?) {}
 

@@ -70,8 +70,8 @@
 
     <TextView
         android:id="@+id/textGuide"
-        android:layout_width="215dp"
-        android:layout_height="229dp"
+        android:layout_width="193dp"
+        android:layout_height="248dp"
         android:fontFamily="@font/brandon_grotesque_regular"
         android:gravity="center"
         android:text="Nappaa kuva!"
@@ -97,15 +97,13 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/primaryActionBtn"
-        android:layout_width="700dp"
-        android:layout_height="700dp"
+        android:layout_width="650dp"
+        android:layout_height="650dp"
         app:layout_constraintBottom_toBottomOf="@+id/roundButton"
         app:layout_constraintEnd_toEndOf="@+id/roundButton"
         app:layout_constraintStart_toStartOf="@+id/roundButton"
         app:layout_constraintTop_toTopOf="@+id/roundButton"
         app:lottie_rawRes="@raw/cam" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

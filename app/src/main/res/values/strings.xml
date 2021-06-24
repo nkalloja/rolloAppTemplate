@@ -15,4 +15,6 @@
 
 
     <string name="permission">"Käyttääksesi sovellusta sinun täytyy hyväksyä lupa sijainnin käyttöön."</string>
+    <string name="dialogTitle">"Luvat vaaditaan"</string>
+    <string name="dialogBody">"Sovellus ei toimi ilman pyydettyjä lupia. Avaa sovelluksen asetukset muuttaaksesi lupia."</string>
 </resources>

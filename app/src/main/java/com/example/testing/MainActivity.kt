@@ -13,7 +13,6 @@ import android.os.Bundle
 import android.os.Environment
 import android.os.Looper
 import android.provider.MediaStore
-import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
@@ -21,9 +20,7 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.FileProvider
-import androidx.lifecycle.MutableLiveData
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
@@ -42,13 +39,11 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
-import org.w3c.dom.Text
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -65,8 +60,6 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
     private var userLastLat: Double? = 0.0
     private var userLastLon: Double? = 0.0
     private val bundle = Bundle()
-    var userToken: String? = null
-    var userRefreshToken: String? = null
 
     @SuppressLint("VisibleForTests")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -260,7 +253,7 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
         EasyPermissions.requestPermissions(
             this,
-            "Käyttääksesi sovellusta sinun täytyy hyväksyä lupa sijainnin käyttöön",
+            resources.getString(R.string.permission),
             0,
             Manifest.permission.ACCESS_FINE_LOCATION,
         )
@@ -334,12 +327,11 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                             userLastLon.toString()
                                 .toRequestBody("multipart/form-data".toMediaTypeOrNull())
                         )
-                    Log.d(TAG, "onActivityResult: ${res?.imgId}")
 
                     res?.imgId?.let { imgId ->
                         val telemetryJson = JsonObject()
 
-                        telemetryJson.addProperty("desc", "coming soon...")
+                        telemetryJson.addProperty("desc", "")
                         telemetryJson.addProperty("lat", userLastLat)
                         telemetryJson.addProperty("lon", userLastLon)
                         telemetryJson.addProperty("imgId", imgId)
@@ -355,8 +347,8 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                         showSnackbar(R.string.snackSuccess)
                     }
                 } catch (e: Exception) {
-                    Log.d(TAG, "${e.printStackTrace()}")
-                    showSnackbar(R.string.snackSuccess)
+                    e.printStackTrace()
+                    showSnackbar(R.string.snackFail)
                 }
             }
         }
@@ -392,8 +384,8 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
     override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
         if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
             AppSettingsDialog.Builder(this)
-                .setTitle("Luvat vaaditaan")
-                .setRationale("Sovellus ei toimi ilman pyydettyjä lupia. Avaa sovelluksen asetukset muuttaaksesi lupia.")
+                .setTitle(resources.getString(R.string.dialogTitle))
+                .setRationale(resources.getString(R.string.dialogBody))
                 .build()
                 .show()
             userAddressTextView.visibility = View.GONE
